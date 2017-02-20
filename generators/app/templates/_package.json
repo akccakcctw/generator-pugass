@@ -1,0 +1,33 @@
+{
+  "name": "<%= appname %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  },
+  "keywords": [
+    "<%= keywords %>"
+  ],
+  "author": "<%= author %>",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "*",
+    "babel-preset-es2015": "*",
+    "babel-register": "*",
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "*",<% if (includeBabel) { %>
+    "gulp-babel": "*",<% } %>
+    "gulp-compass": "^2.1.0",
+    "gulp-load-plugins": "*",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-uglify": "^2.0.0"
+  }
+}
