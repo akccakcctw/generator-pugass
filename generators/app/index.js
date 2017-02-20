@@ -6,6 +6,22 @@ const yosay = require('yosay');
 
 module.exports = Generator.extend({
 
+	constructor: function () {
+
+		Generator.apply(this, arguments);
+
+		this.option('skip-message', {
+      desc: 'Skips the welcome message',
+      type: Boolean
+    });
+
+		this.option('babel', {
+			desc: 'Use Babel',
+			type: Boolean,
+			defaults: true
+		});
+	},
+
 	initializing: function () {
 		this.pkg = require('../../package.json');
 	},
