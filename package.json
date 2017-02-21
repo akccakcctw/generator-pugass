@@ -1,7 +1,7 @@
 {
   "name": "generator-pugass",
   "version": "0.1.0",
-  "description": "project structure generator for F2E develop",
+  "description": "project structure generator for F2E development",
   "main": "generators/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
