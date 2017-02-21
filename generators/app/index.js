@@ -252,8 +252,11 @@ module.exports = Generator.extend({
 			);
 		},
 		misc: function () {
+			this.fs.copy(
+				this.templatePath('assets/sample.jpg'),
+				this.destinationPath('dist/assets/sample.jpg')
+			);
 			mkdirp('src/sass/layout');
-			mkdirp('dist/assets');
 			mkdirp('dist/vendor');
 		}
 
