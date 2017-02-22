@@ -16,7 +16,10 @@
     "compass",
     "front-end"
   ],
-  "author": "RexTsou",
+  "author": "Rex Tsou <akccakccwww@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/akccakcctw/generator-pugass/issues"
+  },
   "dependencies": {
     "chalk": "^1.1.3",
     "mkdirp": "^0.5.1",
