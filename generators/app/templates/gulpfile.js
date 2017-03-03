@@ -52,6 +52,6 @@ gulp.task('views', () => {
       pretty: true,
     }))
     .pipe(gulp.dest('dist')) // output folder
-    .pipt(browserSync.stream())
+    .pipe(browserSync.stream())
     // .pipe($.notify("Compile Pug Complete!"))
 });
