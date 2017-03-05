@@ -11,9 +11,9 @@ module.exports = Generator.extend({
 		Generator.apply(this, arguments);
 
 		this.option('skip-message', {
-      desc: 'Skips the welcome message',
-      type: Boolean
-    });
+			desc: 'Skips the welcome message',
+			type: Boolean
+		});
 
 		this.option('babel', {
 			desc: 'Use Babel',
@@ -165,28 +165,38 @@ module.exports = Generator.extend({
 			);
 		},
 		styles: function () {
-			let css = ['main', '_variable', '_mixin', '_font', '_component', '_base'];
+			let cssStructure = {
+				'.': ['main', '_variable', '_base', '_font'],
+				'mixin': ['_breakpoint'],
+				'layout': ['index', 'about', 'contact'],
+				'module': ['_header', '_footer'],
+				'vendor': ['_normalize'],
+			};
 			let s;
 			if (this.includeSass) {
 				s = 'sass';
-				css = css.map((str) => `${str}.scss`);
+				Object.keys(cssStructure).forEach(sub => {
+					cssStructure[sub] = cssStructure[sub].map(filename => `${filename}.scss`);
+				});
 				this.fs.copy(
 					this.templatePath('config.rb'),
 					this.destinationPath('config.rb')
 				);
 			} else {
 				s = 'css';
-				css = ['main.css'];
+				cssStructure = { '.': ['main.css'] };
 			}
-			css.forEach((item) => {
-				this.fs.copyTpl(
-					this.templatePath(`${s}/${item}`),
-					this.destinationPath(`src/${s}/${item}`),
-					{
-						includeBootstrap: this.includeBootstrap,
-						legacyBootstrap: this.legacyBootstrap
-					}
-				);
+			Object.keys(cssStructure).forEach(sub => {
+				cssStructure[sub].forEach(filename => {
+					this.fs.copyTpl(
+						this.templatePath(`${s}/${sub}/${filename}`),
+						this.destinationPath(`src/${s}/${sub}/${filename}`),
+						{
+							includeBootstrap: this.includeBootstrap,
+							legacyBootstrap: this.legacyBootstrap
+						}
+					);
+				});
 			});
 		},
 		scripts: function () {
@@ -256,11 +266,8 @@ module.exports = Generator.extend({
 				this.templatePath('assets/sample.jpg'),
 				this.destinationPath('dist/assets/sample.jpg')
 			);
-			mkdirp('src/sass/layout');
 			mkdirp('dist/vendor');
 		}
-
 	},
-
-
+	
 });
