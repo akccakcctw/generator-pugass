@@ -1,7 +1,20 @@
-@import "compass/support";
-@import "compass/css3";
-@import "variable";
-@import "mixin";
-@import "font";
-@import "base";
-@import "component";
+@import 'compass/support';
+@import 'compass/css3';
+
+@import 'variable';
+
+// fonts
+@import 'font';
+
+// vendors
+@import 'vendor/normalize';
+
+// mixins
+@import 'mixin/breakpoint';
+
+// default skin
+@import 'base';
+
+// modules
+@import 'module/header';
+@import 'module/footer';
