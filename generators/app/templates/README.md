@@ -6,6 +6,10 @@
 
 A generator base on [yeoman](http://yeoman.io/). Helps you quickly starting a new front-end project.
 
+### dependencies
+
++ modernizr
+
 ### devDependencies
 
 + babel-core
