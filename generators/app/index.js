@@ -145,6 +145,7 @@ module.exports = Generator.extend({
 					includeSass: this.includeSass,
 					includeBabel: this.options['babel'],
 					includeJQuery: this.includeJQuery,
+					includeModernizr: this.includeModernizr,
 				}
 			);
 		},
@@ -216,6 +217,7 @@ module.exports = Generator.extend({
 					appname: this.appname,
 					author: this.author,
 					description: this.description,
+					includeModernizr: this.includeModernizr,
 				}
 			);
 			this.fs.copyTpl(
@@ -225,6 +227,7 @@ module.exports = Generator.extend({
 					appname: this.appname,
 					author: this.author,
 					description: this.description,
+					includeModernizr: this.includeModernizr,
 				}
 			);
 			this.fs.copyTpl(

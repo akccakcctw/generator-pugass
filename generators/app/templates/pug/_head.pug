@@ -4,3 +4,6 @@ meta(name="viewport", content="width=device-width, user-scalable=no, initial-sca
 meta(name="author", content="<%= author %>")
 title <%= appname %>
 link(rel="stylesheet", href="css/main.css")
+<% if (includeModernizr) { %>
+script(src="vendor/modernizr.js")
+<% } %>
