@@ -1,0 +1,2 @@
+#!/bin/sh
+node_modules/modernizr/bin/modernizr -uc node_modules/modernizr/lib/config-all.json -d dist/vendor/modernizr.js

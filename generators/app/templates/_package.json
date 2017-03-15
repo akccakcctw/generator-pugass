@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",<% if (includeModernizr) { %>
-    "modernizr": "node ./node_modules/modernizr/bin/modernizr -uc node_modules/modernizr/lib/config-all.json -d dist/vendor/modernizr.js",<% } %>
+    "modernizr": "sh bin/modernizr",<% } %>
     "gulp": "gulp"
   },
   "keywords": [

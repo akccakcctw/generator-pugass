@@ -264,6 +264,14 @@ module.exports = Generator.extend({
 				}
 			);
 		},
+		bin: function () {
+			if (this.includeModernizr) {
+				this.fs.copy(
+					this.templatePath('bin/modernizr'),
+					this.destinationPath('bin/modernizr')
+				)
+			}
+		},
 		misc: function () {
 			this.fs.copy(
 				this.templatePath('assets/sample.jpg'),
@@ -272,5 +280,5 @@ module.exports = Generator.extend({
 			mkdirp('dist/vendor');
 		}
 	},
-	
+
 });
