@@ -25,9 +25,7 @@ A generator base on [yeoman](http://yeoman.io/). Helps you quickly starting a ne
 + gulp-compass
 + gulp-load-plugins
 + gulp-notify
-+ gulp-uglify
 + gulp-plumber
 + gulp-pug
-
-
-
++ gulp-rename
++ gulp-uglify

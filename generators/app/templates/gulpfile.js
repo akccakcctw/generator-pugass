@@ -45,6 +45,17 @@ gulp.task('js', () => {
   // .pipe($.notify("Minify Javascript Complete!"))
 });
 
+gulp.task('js-min', () => {
+  gulp.src('src/js/**/*.js')
+    .pipe($.plumber())
+    .pipe($.babel())
+    .pipe($.uglify()) // minify
+    .pipe($.rename({ suffix: '.min' }))
+    .pipe(gulp.dest('dist/js'))
+    .pipe(browserSync.stream())
+    // .pipe($.notify('Minify Javascript Complete!'))
+});
+
 gulp.task('views', () => {
   gulp.src('src/views/**/*.pug')
     .pipe($.plumber())
