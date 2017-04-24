@@ -73,6 +73,20 @@ module.exports = Generator.extend({
 			}]
 		}, {
 			type: 'list',
+			name: 'nodeSass',
+			message: 'Which type of Sass would you like to include?',
+			choices: [{
+				name: 'LibSass(node-sass)',
+				value: true,
+			}, {
+				name: 'Ruby Sass',
+				value: false,
+			}],
+			when: (answers) => {
+				return answers.features.indexOf('includeSass') !== -1;
+			}
+		}, {
+			type: 'list',
 			name: 'legacyBootstrap',
 			message: 'Which version of Bootstrap would you like to include?',
 			choices: [{
@@ -104,6 +118,7 @@ module.exports = Generator.extend({
 			this.includeSass = hasFeature('includeSass');
 			this.includeBootstrap = hasFeature('includeBootstrap');
 			this.includeModernizr = hasFeature('includeModernizr');
+			this.nodeSass = answers.nodeSass;
 			this.legacyBootstrap = answers.legacyBootstrap;
 			this.includeJQuery = answers.includeJQuery;
 
@@ -126,6 +141,7 @@ module.exports = Generator.extend({
 					name: this.pkg.name,
 					version: this.pkg.version,
 					includeSass: this.includeSass,
+					nodeSass: this.nodeSass,
 					includeBootstrap: this.includeBootstrap,
 					legacyBootstrap: this.legacyBootstrap,
 					includeBabel: this.options['babel']
@@ -143,6 +159,7 @@ module.exports = Generator.extend({
 					description: this.description,
 					keywords: this.keywords,
 					includeSass: this.includeSass,
+					nodeSass: this.nodeSass,
 					includeBabel: this.options['babel'],
 					includeJQuery: this.includeJQuery,
 					includeModernizr: this.includeModernizr,
@@ -171,7 +188,9 @@ module.exports = Generator.extend({
 				'mixin': ['_breakpoint'],
 				'layout': ['index', 'about', 'contact'],
 				'module': ['_header', '_footer'],
-				'vendor': ['_normalize'],
+			};
+			let cssVendor = {
+				'normalize-scss': ['_normalize.scss', '_variables.scss', '_vertical-rhythm.scss', 'README.md'],
 			};
 			let s;
 			if (this.includeSass) {
@@ -179,10 +198,12 @@ module.exports = Generator.extend({
 				Object.keys(cssStructure).forEach(sub => {
 					cssStructure[sub] = cssStructure[sub].map(filename => `${filename}.scss`);
 				});
-				this.fs.copy(
-					this.templatePath('config.rb'),
-					this.destinationPath('config.rb')
-				);
+				if (!this.nodeSass) {
+					this.fs.copy(
+						this.templatePath('config.rb'),
+						this.destinationPath('config.rb')
+					);
+				}
 			} else {
 				s = 'css';
 				cssStructure = { '.': ['main.css'] };
@@ -193,12 +214,21 @@ module.exports = Generator.extend({
 						this.templatePath(`${s}/${sub}/${filename}`),
 						this.destinationPath(`src/${s}/${sub}/${filename}`),
 						{
+							nodeSass: this.nodeSass,
 							includeBootstrap: this.includeBootstrap,
 							legacyBootstrap: this.legacyBootstrap
 						}
 					);
 				});
 			});
+			Object.keys(cssVendor).forEach(sub => {
+				cssVendor[sub].forEach(filename => {
+					this.fs.copy(
+						this.templatePath(`${s}/vendor/${sub}/${filename}`),
+						this.destinationPath(`src/${s}/vendor/${sub}/${filename}`)
+					);
+				})
+			})
 		},
 		scripts: function () {
 			this.fs.copyTpl(

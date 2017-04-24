@@ -1,13 +1,14 @@
+<% if (!nodeSass) { %>
 @import 'compass/support';
 @import 'compass/css3';
-
+<% } %>
 @import 'variable';
 
 // fonts
 @import 'font';
 
 // vendors
-@import 'vendor/normalize';
+@import 'vendor/normalize-scss/normalize';
 
 // mixins
 @import 'mixin/breakpoint';

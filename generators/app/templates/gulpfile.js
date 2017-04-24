@@ -22,27 +22,56 @@ gulp.task('watch', ['browserSync'], () => {
   gulp.watch('src/views/**/*.pug', ['views']);
 });
 
+gulp.task('min', ['css-min', 'js-min']);
+
 gulp.task('css', () => {
   gulp.src('src/sass/**/*.scss')
-    .pipe($.plumber())
+    .pipe($.plumber())<% if (nodeSass) { %>
+    .pipe($.sass.sync({
+      outputStyle: 'nested', // expanded, nested, compact, compressed
+      precision: 10,
+      includePath: ['.'],
+    }).on('error', $.sass.logError))<% } else { %>
     .pipe($.compass({
       config_file: './config.rb',
       sass: 'src/sass/',
       css: 'dist/css/',
-    }))
+    }))<% } %>
+    .pipe($.autoprefixer({ browsers: ['last 2 versions'] }))
     .pipe(gulp.dest('dist/css')) // output folder
     .pipe(browserSync.stream())
   // .pipe($.notify("Compile Sass Complete!"))
+});
+
+gulp.task('css-min', ()=>{
+  gulp.src('src/sass/**/*.scss')
+    .pipe($.plumber())<% if (nodeSass) { %>
+    .pipe($.sass.sync({
+      outputStyle: 'compressed',
+      precision: 10,
+      includePath: ['.'],
+    }).on('error', $.sass.logError))<% } else { %>
+    .pipe($.compass({
+      config_file: './config.rb',
+      sass: 'src/sass/',
+      css: 'dist/css/',
+    }))<% } %>
+    .pipe($.autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe($.rename({ suffix: '.min' }))
+    .pipe(gulp.dest('dist/css')) // output folder
+    .pipe($.notify({
+      message: 'Minify Sass Complete!',
+      onLast: true,
+    }))
 });
 
 gulp.task('js', () => {
   gulp.src('src/js/**/*.js')
     .pipe($.plumber())
     .pipe($.babel())
-    .pipe($.uglify()) // minify
     .pipe(gulp.dest('dist/js')) // output folder
     .pipe(browserSync.stream())
-  // .pipe($.notify("Minify Javascript Complete!"))
+  // .pipe($.notify("Compile Javascript Complete!"))
 });
 
 gulp.task('js-min', () => {
@@ -52,8 +81,10 @@ gulp.task('js-min', () => {
     .pipe($.uglify()) // minify
     .pipe($.rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/js'))
-    .pipe(browserSync.stream())
-    // .pipe($.notify('Minify Javascript Complete!'))
+    .pipe($.notify({
+      message: 'Minify Javascript Complete!',
+      onLast: true,
+    }))
 });
 
 gulp.task('views', () => {
@@ -64,5 +95,5 @@ gulp.task('views', () => {
     }))
     .pipe(gulp.dest('dist')) // output folder
     .pipe(browserSync.stream())
-    // .pipe($.notify("Compile Pug Complete!"))
+  // .pipe($.notify("Compile Pug Complete!"))
 });

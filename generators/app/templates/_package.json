@@ -25,13 +25,14 @@
     "eslint-plugin-import": "*",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "*",<% if (includeBabel) { %>
-    "gulp-babel": "*",<% } %>
-    "gulp-compass": "^2.1.0",
+    "gulp-babel": "*",<% } %><%if (!nodeSass) { %>
+    "gulp-compass": "^2.1.0",<% } %>
     "gulp-load-plugins": "*",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.2.2",<% if (nodeSass) { %>
+    "gulp-sass": "^3.1.0",<% } %>
     "gulp-uglify": "^2.0.0"
   }
 }
