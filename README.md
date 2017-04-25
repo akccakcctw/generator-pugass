@@ -2,6 +2,11 @@
 
 ## Features
 
++ Enable [ES2015](https://babeljs.io/learn-es2015/) features using [Babel](https://babeljs.io/)
++ CSS [Autoprefixing](https://www.npmjs.com/package/gulp-autoprefixer)
++ Built-in preview server with [BrowserSync](https://www.browsersync.io/)
++ Automagically compile Sass with [LibSass](https://www.npmjs.com/package/gulp-sass) or [Ruby Sass](https://www.npmjs.com/package/gulp-compass)
+
 ## Getting Started
 
 ```sh
