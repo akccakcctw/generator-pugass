@@ -6,6 +6,7 @@
 + CSS [Autoprefixing](https://www.npmjs.com/package/gulp-autoprefixer)
 + Built-in preview server with [BrowserSync](https://www.browsersync.io/)
 + Automagically compile Sass with [LibSass](https://www.npmjs.com/package/gulp-sass) or [Ruby Sass](https://www.npmjs.com/package/gulp-compass)
++ [Pug](https://pugjs.org/api/getting-started.html) as HTML template engine
 
 ## Getting Started
 
@@ -32,3 +33,5 @@ yo pugass
 ## Changelog
 
 ## License
+
+MIT © [Rex Tsou](https://github.com/akccakcctw)
