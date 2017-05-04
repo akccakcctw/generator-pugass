@@ -1,6 +1,7 @@
 {
   "name": "generator-pugass",
   "version": "0.2.0",
+  "repository": "akccakcctw/generator-pugass",
   "description": "project structure generator for F2E development",
   "main": "generators/app/index.js",
   "scripts": {
@@ -25,5 +26,6 @@
     "mkdirp": "^0.5.1",
     "yeoman-generator": "^1.1.0",
     "yosay": "^2.0.0"
-  }
+  },
+  "license": "MIT"
 }
