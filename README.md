@@ -30,8 +30,6 @@ yo pugass
 
 <https://github.com/akccakcctw/generator-pugass/issues>
 
-## Changelog
-
 ## License
 
 MIT © [Rex Tsou](https://github.com/akccakcctw)
