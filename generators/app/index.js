@@ -28,7 +28,7 @@ module.exports = Generator.extend({
 
   prompting: function () {
     if (!this.options['skip-message']) {
-      this.log(yosay('嗨～'));
+      this.log(yosay('嗨～Pugass'));
     }
 
     const prompts = [{
@@ -251,7 +251,7 @@ module.exports = Generator.extend({
         }
       );
       this.fs.copyTpl(
-        this.templatePath('pug/_head.pug'),
+        this.templatePath('pug/partial/_head.pug'),
         this.destinationPath('src/views/partial/head.pug'),
         {
           appname: this.appname,
@@ -260,11 +260,14 @@ module.exports = Generator.extend({
           includeModernizr: this.includeModernizr,
         }
       );
+      this.fs.copy(
+        this.templatePath('pug/partial/_header.pug'),
+        this.destinationPath('src/views/partial/header.pug'),
+      );
       this.fs.copyTpl(
-        this.templatePath('pug/_footer.pug'),
+        this.templatePath('pug/partial/_footer.pug'),
         this.destinationPath('src/views/partial/footer.pug'),
         {
-          appname: this.appname,
           author: this.author,
         }
       );

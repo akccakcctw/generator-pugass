@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 html(<% if (includeModernizr) { %>class="no-js" <% } %>lang="en")
-head
-  include partial/head
-body
-  footer
+  head
+    include partial/head
+  body
+    include partial/header
     include partial/footer
-script(src="js/main.js")
-  
+    script(src="js/main.js")
