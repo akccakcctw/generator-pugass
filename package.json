@@ -1,6 +1,6 @@
 {
   "name": "generator-pugass",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "repository": "akccakcctw/generator-pugass",
   "description": "project structure generator for F2E development",
   "main": "generators/app/index.js",
