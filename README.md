@@ -1,5 +1,8 @@
 # Pugass - front-end structure generator
 
+![NPM-downloads](https://img.shields.io/npm/dt/generator-pugass.svg)
+![LICENSE](https://img.shields.io/github/license/akccakcctw/generator-pugass.svg)
+
 ## Features
 
 + Enable [ES2015](https://babeljs.io/learn-es2015/) features using [Babel](https://babeljs.io/)
@@ -29,6 +32,10 @@ yo pugass
 ## Issues
 
 <https://github.com/akccakcctw/generator-pugass/issues>
+
+## Changelog
+
+<https://github.com/akccakcctw/generator-pugass/blob/master/CHANGELOG.md>
 
 ## License
 
