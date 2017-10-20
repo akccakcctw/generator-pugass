@@ -167,6 +167,7 @@ module.exports = Generator.extend({
       );
     },
     babel: function () {
+      if (!this.options['babel']) return;
       this.fs.copy(
         this.templatePath('babelrc'),
         this.destinationPath('.babelrc')

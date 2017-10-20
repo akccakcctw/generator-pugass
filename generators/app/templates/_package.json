@@ -15,10 +15,10 @@
   "dependencies": {<% if (includeModernizr) { %>
     "modernizr": "^3.3.1"<% } %>
   },
-  "devDependencies": {
+  "devDependencies": { <% if (includeBabel) { %>
     "babel-core": "*",
     "babel-preset-es2015": "*",
-    "babel-register": "*",
+    "babel-register": "*", <% } %>
     "browser-sync": "*",
     "eslint": "*",
     "eslint-config-airbnb-base": "*",

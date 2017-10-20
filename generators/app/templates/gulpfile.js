@@ -67,8 +67,8 @@ gulp.task('css-min', ()=>{
 
 gulp.task('js', () => {
   gulp.src('src/js/**/*.js')
-    .pipe($.plumber())
-    .pipe($.babel())
+    .pipe($.plumber())<% if (includeBabel) { %>
+    .pipe($.babel())<% } %>
     .pipe(gulp.dest('dist/js')) // output folder
     .pipe(browserSync.stream())
   // .pipe($.notify("Compile Javascript Complete!"))
@@ -76,8 +76,8 @@ gulp.task('js', () => {
 
 gulp.task('js-min', () => {
   gulp.src('src/js/**/*.js')
-    .pipe($.plumber())
-    .pipe($.babel())
+    .pipe($.plumber())<% if (includeBabel) { %>
+    .pipe($.babel())<% } %>
     .pipe($.uglify()) // minify
     .pipe($.rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/js'))
