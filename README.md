@@ -10,6 +10,11 @@
 + Built-in preview server with [BrowserSync](https://www.browsersync.io/)
 + Automagically compile Sass with [LibSass](https://www.npmjs.com/package/gulp-sass) or [Ruby Sass](https://www.npmjs.com/package/gulp-compass)
 + [Pug](https://pugjs.org/api/getting-started.html) as HTML template engine
++ Includes git/editor configurations:
+  - .gitignore
+  - .gitattributes
+  - .editorconfig
++ Linting with [eslint](https://eslint.org/)
 
 ## Getting Started
 
