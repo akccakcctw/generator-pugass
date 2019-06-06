@@ -487,8 +487,8 @@ locate-path@^2.0.0:
     path-exists "^3.0.0"
 
 lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.3.0:
-  version "4.17.4"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 log-symbols@^1.0.1:
   version "1.0.2"
@@ -1030,9 +1030,9 @@ yeoman-generator@^1.1.1:
     user-home "^2.0.0"
     yeoman-environment "^1.1.0"
 
-yosay@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/yosay/-/yosay-2.0.1.tgz#078167f0365732e5c82d3f64633f9cd3a0526d2f"
+yosay@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/yosay/-/yosay-2.0.2.tgz#a7017e764cd88d64a1ae64812201de5b157adf6d"
   dependencies:
     ansi-regex "^2.0.0"
     ansi-styles "^3.0.0"
