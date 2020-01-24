@@ -544,11 +544,15 @@ minimist@^1.1.0, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
-mkdirp@^0.5.0, mkdirp@^0.5.1:
+mkdirp@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mkdirp@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.3.tgz#4cf2e30ad45959dddea53ad97d518b6c8205e1ea"
 
 ms@0.7.2:
   version "0.7.2"
@@ -1030,9 +1034,9 @@ yeoman-generator@^1.1.1:
     user-home "^2.0.0"
     yeoman-environment "^1.1.0"
 
-yosay@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/yosay/-/yosay-2.0.1.tgz#078167f0365732e5c82d3f64633f9cd3a0526d2f"
+yosay@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/yosay/-/yosay-2.0.2.tgz#a7017e764cd88d64a1ae64812201de5b157adf6d"
   dependencies:
     ansi-regex "^2.0.0"
     ansi-styles "^3.0.0"
